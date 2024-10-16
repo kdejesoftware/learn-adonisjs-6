@@ -1,0 +1,13 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "DB Server",
+            "Group": "AdonisJS",
+            "Port": 5432,
+            "Username": "admin",
+            "Host": "learn-adonisjs-6-db",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "learn-adonisj-6"
+        }
+    }
+}

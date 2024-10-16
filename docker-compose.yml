@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+
+  learn-adonisjs-6-db:
+    container_name: learn_adonisjs_6_db
+    image: postgres:13
+    ports:
+      - 5432:5432
+    volumes:
+      - learn_adonisjs_6_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: learn-adonisj-6
+  
+  learn-adonisjs-6-pgadmin:
+    container_name: learn-adonisjs_6_pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    volumes:
+      - ./pgconfig:/pgconfig
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.sk
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_SERVER_JSON_FILE: /pgconfig/servers.json
+      PGADMIN_CONFIG_MAX_LOGIN_ATTEMPTS: 10
+    ports:
+      - "5050:80"
+
+volumes:
+  learn_adonisjs_6_data:
